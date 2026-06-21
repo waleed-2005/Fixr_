@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fixr — Home Services</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="fixr.css">
+<script>document.documentElement.classList.add('has-js');</script>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="logo" onclick="showPage('home')">Fixr<span>.</span></div>
+  <div class="nav-links">
+    <a href="#" onclick="showPage('home')">Home</a>
+    <a href="#" onclick="showPage('workers')">Workers</a>
+    <a href="#" onclick="showPage('booking')">Book</a>
+    <a href="#" onclick="showPage('mybookings')">My Bookings</a>
+    <a href="#" onclick="showPage('review')">Review</a>
+  </div>
+  <div class="nav-auth" id="nav-auth">
+    <button class="btn-ghost" onclick="showPage('login')">Login</button>
+    <button class="btn-solid" onclick="showPage('register')">Register</button>
+  </div>
+  <button class="nav-toggle" id="nav-toggle" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- HOME PAGE -->
+<div id="page-home" class="page active">
+  <section class="hero">
+    <div class="hero-tag">KPK's #1 Home Service Platform</div>
+    <h1>Your home.<br><em>Fixed fast.</em></h1>
+    <p>Book verified electricians, plumbers, AC technicians and carpenters — all in one place.</p>
+    <div class="hero-btns">
+      <button class="btn-solid large" onclick="showPage('workers')">Browse Workers</button>
+      <button class="btn-ghost large" onclick="showPage('register')">Get Started</button>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><span data-count="4">0</span>Categories</div>
+      <div class="stat"><span data-count="500" data-prefix="PKR " data-suffix="+">0</span>Starting Rate</div>
+      <div class="stat"><span data-count="100" data-suffix="%">0</span>Verified</div>
+    </div>
+  </section>
+
+  <section class="services">
+    <div class="section-label">What we offer</div>
+    <h2>Every service<br>under one roof</h2>
+    <div class="cards-grid">
+      <div class="service-card">
+        <div class="icon elec">E</div>
+        <h3>Electrician</h3>
+        <p>Wiring, panels, and all electrical work handled by certified professionals.</p>
+        <div class="rate">PKR 1,000 / visit</div>
+      </div>
+      <div class="service-card">
+        <div class="icon plumb">P</div>
+        <h3>Plumber</h3>
+        <p>Pipe fitting, leak repairs, and plumbing installations done right.</p>
+        <div class="rate">PKR 700 / visit</div>
+      </div>
+      <div class="service-card">
+        <div class="icon ac">A</div>
+        <h3>AC Technician</h3>
+        <p>Installation, servicing, and repair for all major AC brands.</p>
+        <div class="rate">PKR 1,500 / visit</div>
+      </div>
+      <div class="service-card">
+        <div class="icon carp">C</div>
+        <h3>Carpenter</h3>
+        <p>Custom furniture, repairs, and woodwork by skilled craftsmen.</p>
+        <div class="rate">PKR 900 / visit</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="how">
+    <div class="section-label">How it works</div>
+    <h2>3 steps to get<br>your home fixed</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <h3>Register & Login</h3>
+        <p>Create your account in seconds. No verification needed to get started.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <h3>Browse & Book</h3>
+        <p>Find the right worker for your job, pick a date, and confirm your booking instantly.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <h3>Rate & Review</h3>
+        <p>Once the job is done, leave a rating to help others find great workers.</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- WORKERS PAGE -->
+<div id="page-workers" class="page">
+  <div class="page-header">
+    <div class="section-label">Our Team</div>
+    <h2>Available Workers</h2>
+    <p>Serving all cities across KPK — Peshawar, Abbottabad, Mardan, Swat and more.</p>
+  </div>
+  <div class="filter-row">
+    <button class="chip active" onclick="filterWorkers(this,'all')">All</button>
+    <button class="chip" onclick="filterWorkers(this,'elec')">Electrician</button>
+    <button class="chip" onclick="filterWorkers(this,'plumb')">Plumber</button>
+    <button class="chip" onclick="filterWorkers(this,'ac')">AC Technician</button>
+    <button class="chip" onclick="filterWorkers(this,'carp')">Carpenter</button>
+  </div>
+  <div class="workers-grid">
+    <div class="worker-card elec">
+      <div class="worker-avatar elec">AK</div>
+      <div class="worker-info">
+        <div class="worker-cat elec">Electrician</div>
+        <h3>Asif Khan</h3>
+        <div class="worker-detail"><span class="dot"></span>0311-1234567</div>
+        <div class="worker-detail"><span class="dot"></span>Abbottabad, KPK</div>
+        <div class="worker-rate">PKR 1,000 / visit</div>
+        <div class="worker-meta">New · not yet rated</div>
+        <button class="btn-solid full" onclick="showPage('booking')">Book Now</button>
+      </div>
+    </div>
+    <div class="worker-card plumb">
+      <div class="worker-avatar plumb">TA</div>
+      <div class="worker-info">
+        <div class="worker-cat plumb">Plumber</div>
+        <h3>Tariq Ahmed</h3>
+        <div class="worker-detail"><span class="dot"></span>0322-9876543</div>
+        <div class="worker-detail"><span class="dot"></span>Peshawar, KPK</div>
+        <div class="worker-rate">PKR 700 / visit</div>
+        <div class="worker-meta">New · not yet rated</div>
+        <button class="btn-solid full" onclick="showPage('booking')">Book Now</button>
+      </div>
+    </div>
+    <div class="worker-card ac">
+      <div class="worker-avatar ac">BT</div>
+      <div class="worker-info">
+        <div class="worker-cat ac">AC Technician</div>
+        <h3>Bilal Tech</h3>
+        <div class="worker-detail"><span class="dot"></span>0333-5556677</div>
+        <div class="worker-detail"><span class="dot"></span>Mardan, KPK</div>
+        <div class="worker-rate">PKR 1,500 / visit</div>
+        <div class="worker-meta">New · not yet rated</div>
+        <button class="btn-solid full" onclick="showPage('booking')">Book Now</button>
+      </div>
+    </div>
+    <div class="worker-card carp">
+      <div class="worker-avatar carp">HU</div>
+      <div class="worker-info">
+        <div class="worker-cat carp">Carpenter</div>
+        <h3>Haroon</h3>
+        <div class="worker-detail"><span class="dot"></span>0344-1112233</div>
+        <div class="worker-detail"><span class="dot"></span>Swat, KPK</div>
+        <div class="worker-rate">PKR 900 / visit</div>
+        <div class="worker-meta">New · not yet rated</div>
+        <button class="btn-solid full" onclick="showPage('booking')">Book Now</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- REGISTER PAGE -->
+<div id="page-register" class="page">
+  <div class="form-wrapper">
+    <div class="form-left">
+      <div class="section-label">Join Fixr</div>
+      <h2>Create your<br>account</h2>
+      <p>Already have an account? <a href="#" onclick="showPage('login')">Login here</a></p>
+    </div>
+    <div class="form-right">
+      <form onsubmit="handleRegister(event)">
+        <div class="form-group">
+          <label>Full Name</label>
+          <input type="text" id="reg-name" placeholder="Waleed Ahmad" required>
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" id="reg-email" placeholder="waleed@gmail.com" required>
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <input type="password" id="reg-password" placeholder="••••••••" required>
+        </div>
+        <div class="form-group">
+          <label>Phone</label>
+          <input type="text" id="reg-phone" placeholder="0311-1234567" required>
+        </div>
+        <button type="submit" class="btn-solid full large">Create Account</button>
+        <div id="reg-msg" class="form-msg"></div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- LOGIN PAGE -->
+<div id="page-login" class="page">
+  <div class="form-wrapper">
+    <div class="form-left">
+      <div class="section-label">Welcome back</div>
+      <h2>Login to<br>your account</h2>
+      <p>Don't have an account? <a href="#" onclick="showPage('register')">Register here</a></p>
+    </div>
+    <div class="form-right">
+      <form onsubmit="handleLogin(event)">
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" id="login-email" placeholder="waleed@gmail.com" required>
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <input type="password" id="login-password" placeholder="••••••••" required>
+        </div>
+        <button type="submit" class="btn-solid full large">Login</button>
+        <div id="login-msg" class="form-msg"></div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- BOOKING PAGE -->
+<div id="page-booking" class="page">
+  <div class="page-header">
+    <div class="section-label">Book a Service</div>
+    <h2>Make a Booking</h2>
+    <p>Choose your worker and pick a date.</p>
+  </div>
+  <div class="form-wrapper single">
+    <div class="book-summary" id="book-summary"></div>
+    <form onsubmit="handleBooking(event)">
+      <div class="form-group">
+        <label>Select Worker</label>
+        <select id="book-worker">
+          <option value="W1">Asif Khan — Electrician — Abbottabad (PKR 1,000)</option>
+          <option value="W2">Tariq Ahmed — Plumber — Peshawar (PKR 700)</option>
+          <option value="W3">Bilal Tech — AC Technician — Mardan (PKR 1,500)</option>
+          <option value="W4">Haroon — Carpenter — Swat (PKR 900)</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Date</label>
+        <input type="date" id="book-date" required>
+      </div>
+      <button type="submit" class="btn-solid full large">Confirm Booking</button>
+      <div id="book-msg" class="form-msg"></div>
+    </form>
+  </div>
+</div>
+
+<!-- MY BOOKINGS PAGE -->
+<div id="page-mybookings" class="page">
+  <div class="page-header">
+    <div class="section-label">Your History</div>
+    <h2>My Bookings</h2>
+  </div>
+  <div id="bookings-list" class="bookings-list">
+    <div class="empty-state">No bookings yet. <a href="#" onclick="showPage('booking')">Make one now.</a></div>
+  </div>
+</div>
+
+<!-- REVIEW PAGE -->
+<div id="page-review" class="page">
+  <div class="page-header">
+    <div class="section-label">Share Your Experience</div>
+    <h2>Leave a Review</h2>
+  </div>
+  <div class="form-wrapper single">
+    <form onsubmit="handleReview(event)">
+      <div class="form-group">
+        <label>Booking ID</label>
+        <input type="text" id="rev-bid" placeholder="BK101" required>
+      </div>
+      <div class="form-group">
+        <label>Rating</label>
+        <div class="star-row">
+          <input type="radio" name="rating" id="s5" value="5"><label for="s5">★</label>
+          <input type="radio" name="rating" id="s4" value="4"><label for="s4">★</label>
+          <input type="radio" name="rating" id="s3" value="3"><label for="s3">★</label>
+          <input type="radio" name="rating" id="s2" value="2"><label for="s2">★</label>
+          <input type="radio" name="rating" id="s1" value="1"><label for="s1">★</label>
+        </div>
+      </div>
+      <button type="submit" class="btn-solid full large">Submit Review</button>
+      <div id="rev-msg" class="form-msg"></div>
+    </form>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="logo">Fixr<span>.</span></div>
+    <div class="footer-text">
+      <p>OOP Lab Project — Pak Austria Fachhochschule, KPK</p>
+      <p>Built with C++ &amp; HTML/CSS</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // simple state
+  let users = [];
+  let bookings = [];
+  let loggedIn = null;
+  let bookingCounter = 100;
+
+  const workers = [
+    { id: 'W1', name: 'Asif Khan',   category: 'Electrician',   rate: 1000, city: 'Abbottabad', cls: 'elec',  init: 'AK' },
+    { id: 'W2', name: 'Tariq Ahmed', category: 'Plumber',       rate: 700,  city: 'Peshawar',   cls: 'plumb', init: 'TA' },
+    { id: 'W3', name: 'Bilal Tech',  category: 'AC Technician', rate: 1500, city: 'Mardan',     cls: 'ac',    init: 'BT' },
+    { id: 'W4', name: 'Haroon',      category: 'Carpenter',     rate: 900,  city: 'Swat',       cls: 'carp',  init: 'HU' },
+  ];
+
+  function showPage(id)
+  {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.getElementById('page-' + id).classList.add('active');
+    document.getElementById('nav').classList.remove('open');
+    window.scrollTo(0, 0);
+    if (id === 'home')    runCounters();
+    if (id === 'booking') updateBookingSummary();
+  }
+
+  function handleRegister(e)
+  {
+    e.preventDefault();
+    const name     = document.getElementById('reg-name').value;
+    const email    = document.getElementById('reg-email').value;
+    const password = document.getElementById('reg-password').value;
+    const phone    = document.getElementById('reg-phone').value;
+
+    const exists = users.find(u => u.email === email);
+    if (exists)
+    {
+      showMsg('reg-msg', 'This email is already registered.', 'error');
+      return;
+    }
+
+    users.push({ name, email, password, phone });
+    showMsg('reg-msg', 'Account created! Please login.', 'success');
+    setTimeout(() => showPage('login'), 1200);
+  }
+
+  function handleLogin(e)
+  {
+    e.preventDefault();
+    const email    = document.getElementById('login-email').value;
+    const password = document.getElementById('login-password').value;
+
+    const user = users.find(u => u.email === email && u.password === password);
+    if (!user)
+    {
+      showMsg('login-msg', 'Incorrect email or password.', 'error');
+      return;
+    }
+
+    loggedIn = user;
+    updateAuthUI();
+    showMsg('login-msg', 'Welcome, ' + user.name + '!', 'success');
+    setTimeout(() => showPage('home'), 1000);
+  }
+
+  function handleBooking(e)
+  {
+    e.preventDefault();
+    if (!loggedIn)
+    {
+      showMsg('book-msg', 'Please login first.', 'error');
+      return;
+    }
+
+    const wid    = document.getElementById('book-worker').value;
+    const date   = document.getElementById('book-date').value;
+    const worker = workers.find(w => w.id === wid);
+
+    bookingCounter++;
+    const bookingId = 'BK' + bookingCounter;
+
+    bookings.push({ bookingId, customer: loggedIn.name, worker: worker.name, date, price: worker.rate });
+    renderBookings();
+    showMsg('book-msg', 'Booking ' + bookingId + ' confirmed!', 'success');
+  }
+
+  function handleReview(e)
+  {
+    e.preventDefault();
+    const bid    = document.getElementById('rev-bid').value;
+    const rating = document.querySelector('input[name="rating"]:checked');
+
+    if (!loggedIn)
+    {
+      showMsg('rev-msg', 'Please login first.', 'error');
+      return;
+    }
+
+    const booking = bookings.find(b => b.bookingId === bid);
+    if (!booking)
+    {
+      showMsg('rev-msg', 'Booking not found.', 'error');
+      return;
+    }
+
+    if (!rating)
+    {
+      showMsg('rev-msg', 'Please select a rating.', 'error');
+      return;
+    }
+
+    showMsg('rev-msg', 'Review submitted! Rating: ' + rating.value + '/5', 'success');
+  }
+
+  function renderBookings()
+  {
+    const list = document.getElementById('bookings-list');
+    if (bookings.length === 0)
+    {
+      list.innerHTML = '<div class="empty-state">No bookings yet. <a href="#" onclick="showPage(\'booking\')">Make one now.</a></div>';
+      return;
+    }
+
+    list.innerHTML = bookings.map(b => `
+      <div class="booking-card">
+        <div class="booking-id">${b.bookingId}</div>
+        <div class="booking-row"><span>Customer</span><strong>${b.customer}</strong></div>
+        <div class="booking-row"><span>Worker</span><strong>${b.worker}</strong></div>
+        <div class="booking-row"><span>Date</span><strong>${b.date}</strong></div>
+        <div class="booking-row"><span>Price</span><strong>PKR ${b.price.toLocaleString()}</strong></div>
+      </div>
+    `).join('');
+  }
+
+  function showMsg(id, text, type)
+  {
+    const el = document.getElementById(id);
+    el.textContent = text;
+    el.className   = 'form-msg ' + type;
+  }
+
+  /* ---------- interactive enhancements ---------- */
+
+  function toggleMenu()
+  {
+    document.getElementById('nav').classList.toggle('open');
+  }
+
+  function updateAuthUI()
+  {
+    const el = document.getElementById('nav-auth');
+    if (loggedIn)
+    {
+      const parts    = loggedIn.name.trim().split(/\s+/);
+      const initials = (parts[0][0] + (parts[1] ? parts[1][0] : '')).toUpperCase();
+      el.innerHTML =
+        '<div class="user-chip"><div class="u-av">' + initials + '</div>' +
+        '<span class="u-name">' + parts[0] + '</span></div>' +
+        '<button class="btn-ghost" onclick="logout()">Logout</button>';
+    }
+    else
+    {
+      el.innerHTML =
+        '<button class="btn-ghost" onclick="showPage(\'login\')">Login</button>' +
+        '<button class="btn-solid" onclick="showPage(\'register\')">Register</button>';
+    }
+  }
+
+  function logout()
+  {
+    loggedIn = null;
+    updateAuthUI();
+    showPage('home');
+  }
+
+  function runCounters()
+  {
+    document.querySelectorAll('.hero-stats span[data-count]').forEach(el => {
+      const target = +el.dataset.count;
+      const prefix = el.dataset.prefix || '';
+      const suffix = el.dataset.suffix || '';
+      const dur = 1100, start = performance.now();
+      function tick(now) {
+        const t = Math.min(1, (now - start) / dur);
+        const eased = 1 - Math.pow(1 - t, 3);
+        el.textContent = prefix + Math.round(target * eased).toLocaleString() + suffix;
+        if (t < 1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+    });
+  }
+
+  function filterWorkers(btn, cat)
+  {
+    document.querySelectorAll('.filter-row .chip').forEach(c => c.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.workers-grid .worker-card').forEach(card => {
+      card.style.display = (cat === 'all' || card.classList.contains(cat)) ? '' : 'none';
+    });
+  }
+
+  function updateBookingSummary()
+  {
+    const sel = document.getElementById('book-worker');
+    if (!sel) return;
+    const w  = workers.find(x => x.id === sel.value) || workers[0];
+    const dv = document.getElementById('book-date').value;
+    const dateLabel = dv
+      ? new Date(dv + 'T00:00:00').toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' })
+      : 'Not selected';
+    document.getElementById('book-summary').innerHTML =
+      '<div class="bs-top"><div class="bs-avatar ' + w.cls + '">' + w.init + '</div>' +
+      '<div><div class="bs-name">' + w.name + '</div>' +
+      '<div class="bs-sub">' + w.category + ' · ' + w.city + ', KPK</div></div></div>' +
+      '<div class="bs-row"><span>Date</span><strong>' + dateLabel + '</strong></div>' +
+      '<div class="bs-row"><span>Service rate</span><strong>PKR ' + w.rate.toLocaleString() + '</strong></div>' +
+      '<div class="bs-row"><span>Total due</span><strong class="bs-total">PKR ' + w.rate.toLocaleString() + '</strong></div>';
+  }
+
+  function initSpotlight()
+  {
+    document.querySelectorAll('.service-card, .worker-card').forEach(card => {
+      card.addEventListener('mousemove', e => {
+        const r = card.getBoundingClientRect();
+        card.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+        card.style.setProperty('--my', (e.clientY - r.top) + 'px');
+      });
+    });
+  }
+
+  function initReveal()
+  {
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(en => {
+        if (en.isIntersecting) {
+          const el = en.target;
+          const i  = [].indexOf.call(el.parentElement.children, el);
+          el.style.transitionDelay = (i * 0.08) + 's';
+          el.classList.add('in');
+          obs.unobserve(el);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.service-card, .step, .worker-card').forEach(el => obs.observe(el));
+  }
+
+  (function init()
+  {
+    updateAuthUI();
+    initSpotlight();
+    initReveal();
+    runCounters();
+    const bd = document.getElementById('book-date');
+    if (bd) { bd.min = new Date().toISOString().split('T')[0]; bd.addEventListener('input', updateBookingSummary); }
+    const bw = document.getElementById('book-worker');
+    if (bw) bw.addEventListener('change', updateBookingSummary);
+    updateBookingSummary();
+    window.addEventListener('scroll', () => {
+      document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 12);
+    });
+  })();
+</script>
+</body>
+</html>
