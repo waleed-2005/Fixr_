@@ -69,6 +69,6 @@ fixr/
 
 <div align="center">
 
-Designed & built by **[Your Name]** · Pak-Austria Fachhochschule, KPK
+Designed & built by **[Waleed Ahmad Khan]** · Pak-Austria Fachhochschule, KPK
 
 </div>
